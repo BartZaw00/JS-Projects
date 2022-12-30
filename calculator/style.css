@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #f95, #fd5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.calculator {
+    width: 500px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.result {
+    background: #fff;
+    border: 5px solid #000;
+    border-radius: 15px;
+    width: 100%;
+    height: 110px;
+    text-align: right;
+    padding-top: 10px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 20px;
+}
+
+.result .previousNumber, .result .equationOperator {
+    opacity: 0.5;
+}
+
+.result .actualNumber {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 40px;
+}
+
+.calculator-buttons {
+    width: 100%;
+    height: 380px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.calculator-buttons button {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.calculator-buttons .equals {
+    background-color: #7cf;
+    color: #444;
+}
+
+.calculator-buttons .operator,
+.calculator-buttons .clear {
+    background-color: #666;
+}
+
+.calculator-history {
+    background: #444;
+    height: 500px;
+    width: 250px;
+    border-radius: 15px;
+}
