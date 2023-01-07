@@ -82,8 +82,9 @@ function equalTo() {
     /* zamiana : oraz x na operacje matematyczne czyli / oraz * */
     console.log("Aktualny rezultat: " + result)
     previousEquation.innerHTML = actualResult.innerHTML + ' =';
-    actualResult.innerHTML = eval(result);
+    // actualResult = ?
     /* wykonanie operacji matematycznej na stringu */
+    /* NIE KORZYSTAĆ Z EVAL() !!! */
 
 }
 
