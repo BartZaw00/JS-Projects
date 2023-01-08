@@ -85,7 +85,6 @@ function equalTo() {
     // actualResult = ?
     /* wykonanie operacji matematycznej na stringu */
     /* NIE KORZYSTAĆ Z EVAL() !!! */
-
 }
 
 function clearAll() {
