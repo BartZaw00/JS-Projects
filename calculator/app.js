@@ -1,14 +1,14 @@
-const previousEquation = document.querySelector('.previousEquation');
+const previousEquation = document.querySelector('[data-previous-equation]');
 
-const actualResult = document.querySelector('.actual-result');
+const actualResult = document.querySelector('[data-actual-result]');
 
-const btnsNumber = document.querySelectorAll('.number');
+const btnsNumber = document.querySelectorAll('[data-number]');
 
-const btnsOperator = document.querySelectorAll('.operator');
+const btnsOperator = document.querySelectorAll('[data-operator]');
 
-const btnClear = document.querySelector('.clear');
+const btnClear = document.querySelector('[data-clear]');
 
-const btnEquals = document.querySelector('.equals');
+const btnEquals = document.querySelector('[data-equals]');
 
 let result = '';
 
