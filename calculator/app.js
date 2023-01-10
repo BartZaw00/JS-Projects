@@ -1,6 +1,8 @@
-const previousEquation = document.querySelector('[data-previous-equation]');
+const previousNumber = document.querySelector('[data-previous-number]');
 
-const actualResult = document.querySelector('[data-actual-result]');
+const mathSign = document.querySelector('[data-math-sign');
+
+const actualNumber = document.querySelector('[data-actual-number]');
 
 const btnsNumber = document.querySelectorAll('[data-number]');
 
@@ -38,67 +40,69 @@ let lastOperator = '';
 
 function displayNumber() {
     /* jezeli przycisk w jaki klikamy ma textContent === . oraz aktualny rezultat jest pusty */
-    if (this.textContent === '.' && actualResult.innerHTML === "")
-        return ".0";
+    if (this.textContent === '.' && actualNumber.innerHTML === "")
+        return actualNumber.innerHTML = ".0";
     /* jezeli przycisk w jaki klikamy ma textContent === . oraz aktualny rezultat zawiera "." */
-    if (this.textContent === '.' && actualResult.innerHTML.includes("."))
+    if (this.textContent === '.' && actualNumber.innerHTML.includes("."))
         return
 
-    console.log('aktualny rezultat: ' + actualResult.innerHTML)
+    console.log('aktualny rezultat: ' + actualNumber.innerHTML)
     /* '' <- javascript traktuje jako literalny ciąg znaków (string) */
     /* "" <- pozwala zawrzeć ${} w stringu */
     /* `` <- pozwala zawrzeć ${} w stringu */
-    actualResult.innerHTML += this.textContent;
+    actualNumber.innerHTML += this.textContent;
 }
 
 
 function pickOperation() {
-    //     console.log(this.textContent)
-    //     if (this.textContent == '.' && actualResult.innerHTML == "")
-    //         actualResult.innerHTML += "0.";
-    //     if (actualResult.innerHTML == "")
-    //         return;
+    if (actualNumber.innerHTML === "" && this.textContent === "-")
+        return actualNumber.innerHTML = "-";
+    if (actualNumber.innerHTML === "")
+        return
 
-
-    //     console.log((!isNaN(Number(actualResult.innerHTML.charAt(actualResult.innerHTML.length - 2)))))
-    //     if (!isNaN(actualResult.innerHTML.charAt(actualResult.innerHTML.length - 2)))
-    //         switch (this.textContent) {
-    //             case '+':
-    //                 actualResult.innerHTML += ' + ';
-    //                 break;
-    //             case '-':
-    //                 actualResult.innerHTML += ' - ';
-    //                 break;
-    //             case 'x':
-    //                 actualResult.innerHTML += ' x ';
-    //                 break;
-    //             case ':':
-    //                 actualResult.innerHTML += ' : ';
-    //                 break;
-    //             case '.':
-    //                 if (actualResult.innerHTML.charAt(actualResult.innerHTML.length - 1) != '.')
-    //                     actualResult.innerHTML += '.';
-    //                 break;
-    //             default:
-    //                 actualResult.innerHTML += ' error ';
-    //                 break;
-    //         }
+    previousNumber.innerHTML = actualNumber.innerHTML;
+    mathSign.innerHTML = this.textContent;
+    actualNumber.innerHTML = '';
 }
 
 function equalTo() {
-    //     result = actualResult.innerHTML.replace(/[:]/g, "/");
-    //     result = result.replace(/[x]/g, "*");
-    //     /* zamiana : oraz x na operacje matematyczne czyli / oraz * */
-    //     console.log("Aktualny rezultat: " + result)
-    //     previousEquation.innerHTML = actualResult.innerHTML + ' =';
-    //     // actualResult = ?
+
+    let a = Number(previousNumber.innerHTML);
+    let b = Number(actualNumber.innerHTML);
+    let operator = mathSign.innerHTML;
+
+    switch (operator) {
+        case '+':
+            result = a + b;
+            break;
+        case '-':
+            result = a - b;
+            break;
+        case 'x':
+            result = a * b;
+            break;
+        case ':':
+            result = a / b;
+            break;
+        default:
+            break;
+    }
+
+    console.log('result: ' + result.toString())
+
+    actualNumber.innerHTML = result;
+    previousNumber.innerHTML = '';
+    mathSign.innerHTML = '';
+
+
     //     /* wykonanie operacji matematycznej na stringu */
     //     /* NIE KORZYSTAĆ Z EVAL() !!! */
 }
 
 function clearAll() {
-    previousEquation.innerHTML = '';
-    actualResult.innerHTML = '';
+    previousNumber.innerHTML = '';
+    actualNumber.innerHTML = '';
+    mathSign.innerHTML = '';
     result = '';
 }
 
