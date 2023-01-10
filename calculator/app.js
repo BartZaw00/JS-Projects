@@ -14,9 +14,11 @@ const btnEquals = document.querySelector('[data-equals]');
 
 const btnHistoryClear = document.querySelector('[data-clear-history]');
 
+const historyResult = document.querySelector('[history-result]');
+
 let result = '';
 
-let lastOperator = '';
+let lastEquation = '';
 
 
 
@@ -59,6 +61,8 @@ function pickOperation() {
         return actualNumber.innerHTML = "-";
     if (actualNumber.innerHTML === "")
         return
+    if (mathSign.innerHTML !== "")
+        equalTo();
 
     previousNumber.innerHTML = actualNumber.innerHTML;
     mathSign.innerHTML = this.textContent;
@@ -88,15 +92,38 @@ function equalTo() {
             break;
     }
 
-    console.log('result: ' + result.toString())
+    if (this.textContent !== "=") {
+        addToLastEquation(a, b, operator);
+    }
+
+    if (this.textContent === "=") {
+        addToLastEquation(a, b, operator);
+        lastEquation += result;
+        addToHistory();
+    }
+
+    console.log(lastEquation)
 
     actualNumber.innerHTML = result;
     previousNumber.innerHTML = '';
     mathSign.innerHTML = '';
-
-
     //     /* wykonanie operacji matematycznej na stringu */
     //     /* NIE KORZYSTAĆ Z EVAL() !!! */
+}
+
+function addToLastEquation(a, b, operator) {
+    lastEquation += a;
+    lastEquation += ' ' + operator + ' ';
+    lastEquation += b;
+    lastEquation += ' = ';
+}
+
+function addToHistory() {
+    historyResult.innerHTML = lastEquation;
+}
+
+function clearHistory() {
+    historyResult.innerHTML = '';
 }
 
 function clearAll() {
@@ -117,4 +144,6 @@ btnsNumber.forEach((button) => {
     button.addEventListener("click", displayNumber)
 });
 
-btnClear.addEventListener('click', clearAll)
+btnClear.addEventListener('click', clearAll);
+
+btnHistoryClear.addEventListener('click', clearHistory);
