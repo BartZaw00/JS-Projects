@@ -110,3 +110,12 @@
     border-radius: 15px;
     cursor: pointer;  /* usunac pozniej */
 }
+
+.result-history ul li {
+    list-style-type: none;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
