@@ -99,6 +99,13 @@
     align-items: center;
 }
 
+.calculator-history .result-history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .calculator-history button {
     font-weight: bold;
     font-size: 15px;

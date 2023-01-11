@@ -75,10 +75,24 @@ function equalTo() {
             result = a - b;
             break;
         case 'x':
-            result = a * b;
+            if (!isDecimal(a))
+                result = a.toFixed(2) * b;
+            else if (!isDecimal(b))
+                result = a * b.toFixed(2);
+            else if (!isDecimal(a) && !isDecimal(b))
+                result = a.toFixed(2) * b.toFixed(2);
+            else
+                result = a * b;
             break;
         case ':':
-            result = a / b;
+            if (!isDecimal(a))
+                result = a.toFixed(2) / b;
+            else if (!isDecimal(b))
+                result = a / b.toFixed(2);
+            else if (!isDecimal(a) && !isDecimal(b))
+                result = a.toFixed(2) * b.toFixed(2);
+            else
+                result = a / b;
             break;
         default:
             break;
@@ -90,13 +104,19 @@ function equalTo() {
 
     if (this.textContent === "=") {
         addToLastEquation(a, b, operator);
-        lastEquation += result;
+        if (!isDecimal(result))
+            lastEquation += result.toFixed(2);
+        else
+            lastEquation += result;
         addToHistory();
     }
 
     console.log(lastEquation)
 
-    actualNumber.innerHTML = result;
+    if (!isDecimal(result))
+        actualNumber.innerHTML = result.toFixed(2);
+    else
+        actualNumber.innerHTML = result;
     previousNumber.innerHTML = '';
     mathSign.innerHTML = '';
     lastEquation = '';
@@ -131,6 +151,10 @@ function clearAll() {
     mathSign.innerHTML = '';
     result = '';
     lastEquation = '';
+}
+
+function isDecimal(n) {
+    return n % 1 === 0;
 }
 
 
