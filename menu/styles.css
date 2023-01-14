@@ -39,6 +39,11 @@ body {
     cursor: pointer;
 }
 
+.button:hover {
+    background-color: goldenrod;
+    color: #fff;
+}
+
 .menu {
     display: flex;
     justify-content: center;
