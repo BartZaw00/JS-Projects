@@ -58,6 +58,7 @@ const array = [
     {
         id: 8,
         category: "breakfast",
+        name: "Kaczka po Polsku",
         price: "$17.99",
         image: "/images/img-8.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id8."
@@ -90,15 +91,55 @@ const btnShakes = document.querySelector('[data-button-shakes]');
 
 const menu = document.querySelector('[data-menu]');
 
-const menuElement = document.createElement("div");
 
-menuElement.class = "menu-element";
 
-function displayMenu() {
-    
+function displayMenu(category) {
+    array.forEach((item) => {
+        const menuElement = document.createElement("div");
+        const img = document.createElement("img");
+        const description = document.createElement("div");
+        const descriptionHeader = document.createElement("div");
+        const descriptionTitle = document.createElement("span");
+        const descriptionPrice = document.createElement("span");
+        const descriptionHeaderLine = document.createElement("div");
+        const descriptionText = document.createElement("div");
+        if (category === item.category || category === "all") {
+            console.log("kategoria: " + category)
+            console.log("item category: " + item.category)
 
+
+            img.setAttribute("src", item.image);
+            img.setAttribute("alt", "img");
+            descriptionTitle.innerHTML = item.name;
+            descriptionPrice.innerHTML = item.price;
+            descriptionText.innerHTML = item.description;
+
+            menu.appendChild(menuElement).classList.add("menu-element");
+            menuElement.appendChild(img);
+            menuElement.appendChild(description).classList.add("description");
+            description.appendChild(descriptionHeader).classList.add("description-header");
+            descriptionHeader.appendChild(descriptionTitle).classList.add("description-title");
+            descriptionHeader.appendChild(descriptionPrice).classList.add("description-price");
+            description.appendChild(descriptionHeaderLine).classList.add("description-header-line");
+            description.appendChild(descriptionText).classList.add("description-text");
+        }
+    });
 }
 
+//window.addEventListener("load", displayMenu("all"));
 
 btnAll.addEventListener('click', () => {
+    displayMenu("all");
+});
+
+btnBreakfast.addEventListener('click', () => {
+    displayMenu("breakfast");
+});
+
+btnLunch.addEventListener('click', () => {
+    displayMenu("lunch");
+});
+
+btnShakes.addEventListener('click', () => {
+    displayMenu("shakes");
 });
