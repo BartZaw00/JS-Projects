@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 50px;
+    margin-top: 100px;
+}
+
+.title-line {
+    width: 100px;
+    height: 5px;
+    background-color: goldenrod;
+}
+
+.buttons {
+    margin: 30px 0;
+}
+
+.button {
+    background-color: transparent;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-element {
+    width: 650px;
+    height: 150px;
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+}
+
+.menu-element img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+}
+
+.description {
+    flex: 1;
+}
+
+.description-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.description-header .description-title {
+    font-weight: 600;
+}
+
+.description-header .description-price {
+    color: goldenrod;
+    font-weight: 600;
+}
+
+.description-header-line {
+    height: 1px;
+    background-color: goldenrod;
+    margin: 0 10px;
+}
+
+.description {
+    margin: 0 10px;
+    margin-top: 10px;
+}
