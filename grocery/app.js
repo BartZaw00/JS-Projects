@@ -7,9 +7,9 @@ const btnDelete = document.querySelectorAll('[data-delete');
 
 formField.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(inputField.value.match(/^[a-zA-Z]+$/));
-    // if Not a Number, Not Empty
-    if (inputField.value.match(/^[a-zA-Z]+$/)) {
+    console.log(inputField.value.match(/^\S*[a-zA-Z\s]\S*$/));
+    // Only Alphabet Characters + spaces only between them, Not Empty
+    if (inputField.value.match(/^\S*[a-zA-Z\s]\S*$/)) {
         
     }
 });
