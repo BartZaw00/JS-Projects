@@ -17,7 +17,17 @@
     <div class="container">
         <h1>Grocery Bud</h1>
         <div class="container-input">
-            <input type="text" placeholder="e.g. Milk"><button>Submit</button>
+            <form data-form class="form-element">
+                <input data-input type="text" placeholder="e.g. Milk"><button type="submit">Submit</button>
+            </form>
+            <ul data-list>
+                <li>Milk<div><button data-edit class="list-button edit">Edit</button><button data-delete class="list-button delete">Delete</button></div>
+                </li>
+                <li>Milk<div><button data-edit class="list-button edit">Edit</button><button data-delete class="list-button delete">Delete</button></div>
+                </li>
+                <li>Milk<div><button data-edit class="list-button edit">Edit</button><button data-delete class="list-button delete">Delete</button></div>
+                </li>
+            </ul>
         </div>
     </div>
 

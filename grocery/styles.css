@@ -2,13 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Heebo', sans-serif;
     font-family: 'Rubik', sans-serif;
 }
 
 html {
     --primary-color: rgb(199, 229, 247);
     --container-main: #fff;
+    --input-field: #eee;
 }
 
 body {
@@ -24,8 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
-    width: 1000px;
+    width: 600px;
     margin: 0 50px;
     border-radius: 10px;
     padding: 40px 20px;
@@ -41,16 +40,20 @@ body {
     margin: 20px 0;
 }
 
-.container-input input {
-    background-color: #eee;
-    width: 250px;
+.container-input .form-element {
     height: 30px;
+}
+
+.form-element input {
+    background-color: var(--input-field);
+    width: 350px;
+    height: 100%;
     border: none;
     outline: none;
     padding: 0 10px;
 }
 
-.container-input button {
+.form-element button {
     background-color: var(--primary-color);
     height: 100%;
     width: 100px;
@@ -58,11 +61,36 @@ body {
     cursor: pointer;
 }
 
+.container-input ul {
+    margin: 25px 10px;
+}
+
+.container-input ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.list-button {
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.edit {
+    background-color: lawngreen;
+}
+
+.delete {
+    background-color: crimson;
+}
+
 @media (max-width: 1000px) {
-    .container {
-        height: 300px;
-    }
-    .container-input input {
-        width: 200px;
+    .form-element input {
+        width: 300px;
     }
 }
