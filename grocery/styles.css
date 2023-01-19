@@ -79,6 +79,7 @@ body {
     cursor: pointer;
     border: none;
     outline: none;
+    background-color: lawngreen;
 }
 
 .edit {
@@ -100,8 +101,20 @@ body {
     display: none;
 }
 
+.edit-input {
+    font-size: 20px;
+    height: 25px;
+    width: 250px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #aaa;
+}
+
 @media (max-width: 1000px) {
     .form-element input {
-        width: 300px;
+        width: 200px;
+    }
+    .edit-input {
+        width: 150px;
     }
 }
