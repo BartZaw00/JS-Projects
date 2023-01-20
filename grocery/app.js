@@ -1,11 +1,21 @@
+// query selectors
 const formField = document.querySelector('[data-form]');
 const inputField = document.querySelector('[data-input]');
 const list = document.querySelector('[data-list]');
 const clear = document.querySelector('[data-clear]');
 
-let btnsEdit = '';
-let btnsDelete = '';
-let tempInput = '';
+// form field event listener variables
+let btnsEdit;
+let btnsDelete;
+let tempInput;
+
+// list event listener variables
+let li;
+let currentLi;
+let span;
+let editBtn;
+let input;
+let saveBtn;
 
 formField.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -20,30 +30,40 @@ formField.addEventListener('submit', (e) => {
         btnsEdit = document.querySelectorAll('[data-edit]');
         btnsDelete = document.querySelectorAll('[data-delete]');
         inputField.value = '';
+    }
+});
 
-        list.addEventListener('click', (event) => {
-            if (event.target.classList.contains('edit')) {
-                let li = event.target.parentNode.parentNode;
-                let span = li.childNodes[0];
-                let div = li.childNodes[1];
-                let input = document.createElement('input');
-                input.classList.add('edit-input');
-                let saveBtn = document.createElement('button');
-                saveBtn.classList.add('list-button');
-                saveBtn.textContent = 'Save';
-                input.value = span.textContent;
-                li.replaceChild(input, span);
-                li.replaceChild(saveBtn, div);
-            }
-        });
-
-        list.addEventListener('click', (event) => {
-            if (event.target.classList.contains('delete')) {
-                let li = event.target.parentNode.parentNode;
-                li.remove();
-                if (!list.children.length) clear.classList.add('display-none');
-            }
-        });
+list.addEventListener('click', (event) => {
+    console.log(event.target)
+    if (event.target.classList.contains('edit')) {
+        console.log('EDIT')
+        li = event.target.parentNode.parentNode;
+        span = li.childNodes[0];
+        editBtn = li.childNodes[1].childNodes[0];
+        input = document.createElement('input');
+        input.classList.add('edit-input');
+        editBtn.classList.remove('edit');
+        editBtn.classList.add('save');
+        editBtn.textContent = 'Save';
+        input.value = span.textContent;
+        li.replaceChild(input, span);
+    }
+    else if (event.target.classList.contains('save')) {
+        li = event.target.parentNode.parentNode;
+        input = li.childNodes[0];
+        editBtn = li.childNodes[1].childNodes[0];
+        editBtn.classList.remove('save');
+        editBtn.classList.add('edit');
+        editBtn.textContent = 'Edit';
+        console.log(editBtn)
+        span.textContent = input.value;
+        li.replaceChild(span, input);
+    }
+    else if (event.target.classList.contains('delete')) {
+        console.log('DELETE')
+        li = event.target.parentNode.parentNode;
+        li.remove();
+        if (!list.children.length) clear.classList.add('display-none');
     }
 });
 
@@ -51,3 +71,4 @@ clear.addEventListener('click', () => {
     if (!clear.classList.contains('display-none')) clear.classList.add('display-none');
     list.innerHTML = ``;
 });
+
