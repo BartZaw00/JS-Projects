@@ -4,7 +4,7 @@ const array = [
         category: "lunch",
         name: "Polish Duck",
         price: "$17.99",
-        image: "/images/img-1.jpg",
+        image: "images/img-1.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id1."
     },
     {
@@ -12,7 +12,7 @@ const array = [
         category: "breakfast",
         name: "Brownie in chocolate sauce",
         price: "$7.99",
-        image: "/images/img-8.jpg",
+        image: "images/img-8.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id8."
     },
     {
@@ -20,7 +20,7 @@ const array = [
         category: "lunch",
         name: "Italian Chicken",
         price: "$13.99",
-        image: "/images/img-3.jpg",
+        image: "images/img-3.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id3."
     },
     {
@@ -28,7 +28,7 @@ const array = [
         category: "dessert",
         name: "Pancakes in maple syrup",
         price: "$12.99",
-        image: "/images/img-6.jpg",
+        image: "images/img-6.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id6."
     },
     {
@@ -36,7 +36,7 @@ const array = [
         category: "lunch",
         name: "Prawns in cream sauce",
         price: "$19.99",
-        image: "/images/img-5.jpg",
+        image: "images/img-5.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id5."
     },
     {
@@ -44,7 +44,7 @@ const array = [
         category: "lunch",
         name: "Argentinian Chicken",
         price: "$13.99",
-        image: "/images/img-4.jpg",
+        image: "images/img-4.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id4."
     },
     {
@@ -52,7 +52,7 @@ const array = [
         category: "dessert",
         name: "Fruit Dessert",
         price: "$9.99",
-        image: "/images/img-7.jpg",
+        image: "images/img-7.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id7."
     },
     {
@@ -60,7 +60,7 @@ const array = [
         category: "lunch",
         name: "Beef Ramen",
         price: "$10.99",
-        image: "/images/img-2.jpg",
+        image: "images/img-2.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id2."
     },
     {
@@ -68,7 +68,7 @@ const array = [
         category: "breakfast",
         name: "Lard Sandwich",
         price: "$5.99",
-        image: "/images/img-9.jpg",
+        image: "images/img-9.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id9."
     },
     {
@@ -76,7 +76,7 @@ const array = [
         category: "lunch",
         name: "American Steak",
         price: "$21.99",
-        image: "/images/img-10.jpg",
+        image: "images/img-10.jpg",
         description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt veniam modi est blanditiis soluta commodi quod, officiis delectus doloremque id10."
     },
 ]
