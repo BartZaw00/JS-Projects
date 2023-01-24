@@ -37,7 +37,7 @@
     font-size: 20px;
 }
 
-.result .previous-number{
+.result .previous-number {
     opacity: 0.5;
 }
 
@@ -63,6 +63,8 @@
     color: #fff;
     border-radius: 15px;
 }
+
+
 
 .calculator-buttons .equals {
     background-color: #7cf;
@@ -90,7 +92,7 @@
     height: 105px;
     margin: 0;
     padding: 0;
-    border:none;
+    border: none;
     border-radius: 0;
     border-bottom: 5px solid #000;
     font-size: 35px;
@@ -115,7 +117,8 @@
     color: #fff;
     border: 3px solid #000;
     border-radius: 15px;
-    cursor: pointer;  /* usunac pozniej */
+    cursor: pointer;
+    /* usunac pozniej */
 }
 
 .result-history ul li {
