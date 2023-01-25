@@ -10,6 +10,8 @@ const btnsOperator = document.querySelectorAll('[data-operator]');
 
 const btnClear = document.querySelector('[data-clear]');
 
+const btnDel = document.querySelector('[data-del]');
+
 const btnEquals = document.querySelector('[data-equals]');
 
 const btnHistoryClear = document.querySelector('[data-clear-history]');
@@ -55,17 +57,22 @@ function pickOperation() {
         return
     if (mathSign.innerHTML !== "")
         equalTo();
+    
 
     previousNumber.innerHTML = actualNumber.innerHTML;
-    mathSign.innerHTML = this.textContent;
+    if(mathSign.innerHTML = 'ab')
+        mathSign.innerHTML = '^';
+    else
+        mathSign.innerHTML = this.textContent;
     actualNumber.innerHTML = '';
 }
 
 function equalTo() {
-
     let a = Number(previousNumber.innerHTML);
     let b = Number(actualNumber.innerHTML);
     let operator = mathSign.innerHTML;
+
+    console.log(operator)
 
     switch (operator) {
         case '+':
@@ -75,24 +82,34 @@ function equalTo() {
             result = a - b;
             break;
         case 'x':
-            if (!isDecimal(a))
+            if (!isDecimal(a) && !isDecimal(b))
+                result = a.toFixed(2) * b.toFixed(2);
+            else if (!isDecimal(a))
                 result = a.toFixed(2) * b;
             else if (!isDecimal(b))
                 result = a * b.toFixed(2);
-            else if (!isDecimal(a) && !isDecimal(b))
-                result = a.toFixed(2) * b.toFixed(2);
             else
                 result = a * b;
             break;
         case ':':
-            if (!isDecimal(a))
+            if (!isDecimal(a) && !isDecimal(b))
+                result = a.toFixed(2) / b.toFixed(2);
+            else if (!isDecimal(a))
                 result = a.toFixed(2) / b;
             else if (!isDecimal(b))
                 result = a / b.toFixed(2);
-            else if (!isDecimal(a) && !isDecimal(b))
-                result = a.toFixed(2) * b.toFixed(2);
             else
                 result = a / b;
+            break;
+        case 'ab':
+            if (!isDecimal(a) && !isDecimal(b))
+                result = a.toFixed(2) ** b.toFixed(2);
+            else if (!isDecimal(a))
+                result = a.toFixed(2) ** b;
+            else if (!isDecimal(b))
+                result = a ** b.toFixed(2);
+            else
+                result = a ** b;
             break;
         default:
             break;
@@ -117,11 +134,12 @@ function equalTo() {
         actualNumber.innerHTML = result.toFixed(2);
     else
         actualNumber.innerHTML = result;
+        
     previousNumber.innerHTML = '';
     mathSign.innerHTML = '';
     lastEquation = '';
-    //     /* wykonanie operacji matematycznej na stringu */
-    //     /* NIE KORZYSTAĆ Z EVAL() !!! */
+    /* wykonanie operacji matematycznej na stringu */
+    /* NIE KORZYSTAĆ Z EVAL() !!! */
 }
 
 function addToLastEquation(a, b, operator) {
@@ -157,6 +175,13 @@ function isDecimal(n) {
     return n % 1 === 0;
 }
 
+function factorial(n) {
+    let result = 1;
+    for (let i = 1; i <= n; i++) {
+      result *= i;
+    }
+    return result;
+  }
 
 btnsOperator.forEach((button) => {
     button.addEventListener('click', pickOperation);
@@ -169,5 +194,9 @@ btnsNumber.forEach((button) => {
 });
 
 btnClear.addEventListener('click', clearAll);
+
+btnDel.addEventListener('click', () => {
+    actualNumber.innerHTML = actualNumber.innerHTML.slice(0, -1);
+});
 
 btnHistoryClear.addEventListener('click', clearHistory);

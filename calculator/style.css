@@ -62,13 +62,13 @@
     background-color: #444;
     color: #fff;
     border-radius: 15px;
+    cursor: pointer;
 }
-
-
 
 .calculator-buttons .equals {
     background-color: #7cf;
     color: #444;
+    grid-column: span 2;
 }
 
 .calculator-buttons .operator,
@@ -85,7 +85,6 @@
     align-items: center;
     border: 5px solid #000;
     overflow: hidden;
-
 }
 
 .calculator-history .result {
@@ -118,7 +117,6 @@
     border: 3px solid #000;
     border-radius: 15px;
     cursor: pointer;
-    /* usunac pozniej */
 }
 
 .result-history ul li {
@@ -128,4 +126,28 @@
     background-color: #fff;
     border-radius: 5px;
     text-align: center;
+}
+
+@media (max-width: 700px) {
+    .container {
+        height: 100%;
+        padding: 0 50px;
+    }
+
+    .calculator {
+        width: 300px;
+    }
+
+    .calculator-buttons {
+        height: 300px;
+    }
+
+    .calculator-history {
+        height: 420px;
+        width: 150px;
+    }
+
+    .calculator-history button {
+        font-size: 13px;
+    }
 }
