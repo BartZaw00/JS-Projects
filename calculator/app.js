@@ -60,7 +60,8 @@ function pickOperation() {
     
 
     previousNumber.innerHTML = actualNumber.innerHTML;
-    if(mathSign.innerHTML = 'ab')
+    console.log('ZNAK:'+ this.textContent)
+    if(this.textContent === 'ab')
         mathSign.innerHTML = '^';
     else
         mathSign.innerHTML = this.textContent;
@@ -72,7 +73,8 @@ function equalTo() {
     let b = Number(actualNumber.innerHTML);
     let operator = mathSign.innerHTML;
 
-    console.log(operator)
+    if(a === 0 || b === 0)
+        return;
 
     switch (operator) {
         case '+':
@@ -101,7 +103,7 @@ function equalTo() {
             else
                 result = a / b;
             break;
-        case 'ab':
+        case '^':
             if (!isDecimal(a) && !isDecimal(b))
                 result = a.toFixed(2) ** b.toFixed(2);
             else if (!isDecimal(a))

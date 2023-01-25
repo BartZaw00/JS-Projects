@@ -92,7 +92,7 @@
 .calculator-history .result {
     height: 105px;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     border: none;
     border-radius: 0;
     border-bottom: 5px solid #000;
@@ -103,6 +103,7 @@
 }
 
 .calculator-history .result-history {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,10 +125,9 @@
 .result-history ul li {
     list-style-type: none;
     font-size: 20px;
-    margin-top: 10px;
-    background-color: #fff;
-    border-radius: 5px;
+    margin-top: 15px;
     text-align: center;
+    border-bottom: 1px solid black;
 }
 
 #credits {
@@ -149,7 +149,6 @@
 
 @media (max-width: 700px) {
     .container {
-        height: 100%;
         padding: 0 50px;
     }
 
