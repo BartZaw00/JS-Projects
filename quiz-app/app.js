@@ -1,4 +1,4 @@
-const questions = [
+const questionsArr = [
     {
         id: 1,
         question: 'Who won the 2018 FIFA World Cup?',
@@ -101,3 +101,49 @@ const questions = [
     },
 ];
 
+const questionNr = document.querySelector('[data-question-number]');
+
+const timer = document.querySelector('[data-timer]');
+
+const question = document.querySelector('[data-question]');
+
+const answers = document.querySelectorAll('[data-answer]');
+
+const btnSendAnswer = document.querySelector('[data-send-answer]');
+
+let index = 0;
+
+let timerSeconds = 600;
+
+let minutes;
+let seconds;
+
+function showQuestion() {
+    questionNr.innerHTML = `Question ${index + 1} (${questionsArr.length - index + 1} remaining)`;
+
+}
+
+
+
+function timerStart() {
+    let interval = setInterval(() => {
+        minutes = timerSeconds / 60;
+        seconds = timerSeconds % 60;
+        // if(timerSeconds <= 600)
+        //     timer.classList.add
+        if (timerSeconds <= 0)
+            clearInterval(interval);
+        else {
+            timer.textContent = `${Math.floor(minutes)}:${Math.floor(seconds)}`;
+            if (minutes < 10)
+                timer.textContent = `0${Math.floor(minutes)}:${Math.floor(seconds)}`;
+            if (seconds < 10)
+                timer.textContent = `${Math.floor(minutes)}:0${Math.floor(seconds)}`;
+            timerSeconds--;
+        }
+    }, 1000);
+}
+
+window.addEventListener('DOMContentLoaded', timerStart);
+
+//btnSendAnswer.addEventListener('click',);

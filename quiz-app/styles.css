@@ -91,3 +91,9 @@ html {}
     background-color: #d99ec9;
     cursor: pointer;
 }
+
+.answer-button:hover {
+    background-color: white;
+    border: 2px solid #d99ec9;
+    color: #d99ec9;
+}
