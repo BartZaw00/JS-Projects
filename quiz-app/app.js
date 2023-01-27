@@ -71,26 +71,24 @@ const questionsArr = [
     }
 ];
 
+const questionContainer = document.querySelector('[data-question-container]');
+const originalQuestionContainer = questionContainer.innerHTML;
 
-const questionNr = document.querySelector('[data-question-number]');
-
-const timer = document.querySelector('[data-timer]');
-
-const question = document.querySelector('[data-question]');
-
-const form = document.querySelector('[data-form]');
-
+//const questionNr = document.querySelector('[data-question-number]');
+//const timer = document.querySelector('[data-timer]');
+//const question = document.querySelector('[data-question]');
+//const form = document.querySelector('[data-form]');
 //const answers = document.querySelectorAll('[data-answer]');
-
 //const answersNr = document.querySelectorAll('[data-answer-number]');
 
 const btnSendAnswer = document.querySelector('[data-send-answer]');
 
 
+let answerElements;
 let index = 0;
 
-let timerSeconds = 600;
-
+let timerSeconds = 300;
+let interval;
 let minutes;
 let seconds;
 
@@ -100,6 +98,10 @@ let spanArray = [];
 
 
 function showQuestion() {
+    const questionNr = document.querySelector('[data-question-number]');
+    const question = document.querySelector('[data-question]');
+    const form = document.querySelector('[data-form]');
+
     questionNr.textContent = `Question ${index + 1} (${questionsArr.length - index - 1} remaining)`;
     question.textContent = questionsArr[index].question;
 
@@ -113,32 +115,73 @@ function showQuestion() {
         form.appendChild(pArray[i]);
         pArray[i].insertBefore(spanArray[i], pArray[i].childNodes[0]);
     }
+    answerElements = document.querySelectorAll("[data-answer]");
+
+    answerElements.forEach((chosenAnswer) => {
+        chosenAnswer.addEventListener('click', () => {
+            // a loop to 'deselect' all answers that are not chosen
+            answerElements.forEach((element) => {
+                if (chosenAnswer !== element)
+                    element.classList.remove('chosen-answer');
+            });
+            chosenAnswer.classList.toggle('chosen-answer');
+        })
+    });
+
     index++;
 }
 
 
 function showNextQuestion() {
-    if (index >= questionsArr.length) {
-        //showEndScreen();
+    if (btnSendAnswer.textContent === `START AGAIN`) {
+        btnSendAnswer.textContent = `SEND ANSWER`;
+        score = 0;
+        index = 0;
+        timerSeconds = 300;
+        questionContainer.innerHTML = originalQuestionContainer;
+        clearInterval(interval);
+        timerStart()
+        showQuestion();
         return
     }
-    let answerElements = document.querySelectorAll("[data-answer]");
-    console.log(answerElements)
-    answerElements.forEach((item) => {
-        item.remove();
-    });
+
+    if (index === questionsArr.length) {
+        showEndScreen();
+        return
+    }
+
+    for (let i = 0; i < answerElements.length; i++) {
+        if (answerElements[i].classList.contains('chosen-answer'))
+            if (i + 1 === questionsArr[index - 1].correctAnswer)
+                score++;
+
+        answerElements[i].remove();
+    }
+    console.log('index:' + index)
+    console.log('score:' + score)
+
     showQuestion();
+}
+
+function showEndScreen() {
+    questionContainer.innerHTML = `You scored ${score} points!`;
+    btnSendAnswer.textContent = `START AGAIN`;
 }
 
 
 function timerStart() {
-    let interval = setInterval(() => {
+    const timer = document.querySelector('[data-timer]');
+    
+    interval = setInterval(() => {
         minutes = timerSeconds / 60;
         seconds = timerSeconds % 60;
-        // if(timerSeconds <= 600)
-        //     timer.classList.add
-        if (timerSeconds < 0)
+        if (timerSeconds <= 120)
+            timer.classList.add('timer-2min');
+        if (timerSeconds < 0) {
+            showEndScreen();
             clearInterval(interval);
+        }
+
         else {
             timer.textContent = `${Math.floor(minutes)}:${Math.floor(seconds)}`;
             if (minutes < 10)
@@ -154,14 +197,3 @@ window.addEventListener('DOMContentLoaded', timerStart);
 window.addEventListener('DOMContentLoaded', showQuestion);
 
 btnSendAnswer.addEventListener('click', showNextQuestion);
-
-// answers.forEach((answer) => {
-//     answer.addEventListener('click', () => {
-//         // a loop to 'deselect' all answers that are not chosen
-//         pArray.forEach((item) => {
-//             if (item !== answer)
-//                 item.classList.remove('chosen-answer');
-//         });
-//         answer.classList.toggle('chosen-answer');
-//     })
-// });
