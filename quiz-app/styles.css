@@ -96,6 +96,7 @@ html {}
     color: white;
     background-color: #d99ec9;
     cursor: pointer;
+    box-shadow: 5px 5px 15px rgb(190, 190, 190), 0px 0px 5px rgb(230, 230, 230);
 }
 
 .answer-button:hover {

@@ -72,7 +72,6 @@ const questionsArr = [
 ];
 
 
-
 const questionNr = document.querySelector('[data-question-number]');
 
 const timer = document.querySelector('[data-timer]');
@@ -81,7 +80,7 @@ const question = document.querySelector('[data-question]');
 
 const form = document.querySelector('[data-form]');
 
-const answers = document.querySelectorAll('[data-answer]');
+//const answers = document.querySelectorAll('[data-answer]');
 
 //const answersNr = document.querySelectorAll('[data-answer-number]');
 
@@ -103,17 +102,33 @@ let spanArray = [];
 function showQuestion() {
     questionNr.textContent = `Question ${index + 1} (${questionsArr.length - index - 1} remaining)`;
     question.textContent = questionsArr[index].question;
+
     for (let i = 0; i < questionsArr[index].numOfAnswers; i++) {
         pArray[i] = document.createElement("p");
         spanArray[i] = document.createElement("span");
+        pArray[i].setAttribute('data-answer', '');
         pArray[i].classList.add('answer');
         spanArray[i].textContent = `${String.fromCharCode(i + 65)}`;
         pArray[i].textContent = questionsArr[index].answersArr[i];
         form.appendChild(pArray[i]);
-        pArray[i].appendChild(spanArray[i]);
+        pArray[i].insertBefore(spanArray[i], pArray[i].childNodes[0]);
     }
+    index++;
 }
 
+
+function showNextQuestion() {
+    if (index >= questionsArr.length) {
+        //showEndScreen();
+        return
+    }
+    let answerElements = document.querySelectorAll("[data-answer]");
+    console.log(answerElements)
+    answerElements.forEach((item) => {
+        item.remove();
+    });
+    showQuestion();
+}
 
 
 function timerStart() {
@@ -138,7 +153,7 @@ function timerStart() {
 window.addEventListener('DOMContentLoaded', timerStart);
 window.addEventListener('DOMContentLoaded', showQuestion);
 
-btnSendAnswer.addEventListener('click', showQuestion);
+btnSendAnswer.addEventListener('click', showNextQuestion);
 
 // answers.forEach((answer) => {
 //     answer.addEventListener('click', () => {
@@ -150,13 +165,3 @@ btnSendAnswer.addEventListener('click', showQuestion);
 //         answer.classList.toggle('chosen-answer');
 //     })
 // });
-
-btnSendAnswer.addEventListener('click', () => {
-    if (index === questionsArr.length) {
-        //showEndScreen();
-        return
-    }
-
-    //showQuestion();
-
-});
