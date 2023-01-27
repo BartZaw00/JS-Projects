@@ -108,3 +108,36 @@ html {}
     border: 2px solid #d99ec9;
     color: #d99ec9;
 }
+
+#credits {
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#credits:hover span {
+    color: rgb(177, 85, 32)
+}
+
+@media (max-width: 600px) {
+
+    .question-container {
+        width: 400px;
+    }
+    
+}
+
+@media (max-height: 650px) {
+
+    .question-container {
+        margin-top: -15px;
+    }
+    
+}
