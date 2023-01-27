@@ -98,6 +98,7 @@ let spanArray = [];
 
 
 function showQuestion() {
+
     const questionNr = document.querySelector('[data-question-number]');
     const question = document.querySelector('[data-question]');
     const form = document.querySelector('[data-form]');
@@ -150,28 +151,39 @@ function showNextQuestion() {
         return
     }
 
+    let answerPicked = false;
+
     for (let i = 0; i < answerElements.length; i++) {
-        if (answerElements[i].classList.contains('chosen-answer'))
+        if (answerElements[i].classList.contains('chosen-answer')) {
+            answerPicked = true;
             if (i + 1 === questionsArr[index - 1].correctAnswer)
                 score++;
-
-        answerElements[i].remove();
+        }
     }
-    console.log('index:' + index)
-    console.log('score:' + score)
 
-    showQuestion();
+    if (answerPicked) {
+        answerElements.forEach((element) => {
+            element.remove();
+        })
+        
+        showQuestion();
+    }
+
 }
 
+
 function showEndScreen() {
-    questionContainer.innerHTML = `You scored ${score} points!`;
+    if (score === 1)
+        questionContainer.innerHTML = `You scored ${score} point!`;
+    else
+        questionContainer.innerHTML = `You scored ${score} points!`;
     btnSendAnswer.textContent = `START AGAIN`;
 }
 
 
 function timerStart() {
     const timer = document.querySelector('[data-timer]');
-    
+
     interval = setInterval(() => {
         minutes = timerSeconds / 60;
         seconds = timerSeconds % 60;
@@ -179,9 +191,7 @@ function timerStart() {
             timer.classList.add('timer-2min');
         if (timerSeconds < 0) {
             showEndScreen();
-            clearInterval(interval);
         }
-
         else {
             timer.textContent = `${Math.floor(minutes)}:${Math.floor(seconds)}`;
             if (minutes < 10)

@@ -139,5 +139,8 @@ html {}
     .question-container {
         margin-top: -15px;
     }
-    
+
+    .answer-button {
+        margin-bottom: 50px;
+    }
 }
