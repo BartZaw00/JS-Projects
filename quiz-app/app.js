@@ -3,103 +3,75 @@ const questionsArr = [
         id: 1,
         question: 'Who won the 2018 FIFA World Cup?',
         numOfAnswers: 4,
-        answer1: 'France',
-        answer2: 'Germany',
-        answer3: 'Brazil',
-        answer4: 'Spain',
+        answersArr: ['France', 'Germany', 'Brazil', 'Spain'],
         correctAnswer: 1
     },
     {
         id: 2,
         question: 'Which country has won the most FIFA World Cups?',
         numOfAnswers: 4,
-        answer1: 'Brazil',
-        answer2: 'Germany',
-        answer3: 'Italy',
-        answer4: 'Argentina',
+        answersArr: ['Brazil', 'Germany', 'Italy', 'Argentina'],
         correctAnswer: 1
     },
     {
         id: 3,
         question: 'Who is the all-time leading goal scorer in the UEFA Champions League?',
         numOfAnswers: 4,
-        answer1: 'Lionel Messi',
-        answer2: 'Cristiano Ronaldo',
-        answer3: 'Raul',
-        answer4: 'Lewandowski',
+        answersArr: ['Lionel Messi', 'Cristiano Ronaldo', 'Raul', 'Lewandowski'],
         correctAnswer: 2
     },
     {
         id: 4,
         question: 'Which club has won the most English Premier League titles?',
         numOfAnswers: 4,
-        answer1: 'Manchester United',
-        answer2: 'Arsenal',
-        answer3: 'Chelsea',
-        answer4: 'Liverpool',
+        answersArr: ['Manchester United', 'Arsenal', 'Chelsea', 'Liverpool'],
         correctAnswer: 4
     },
     {
         id: 5,
         question: 'Which team has won the most Copa Libertadores titles?',
         numOfAnswers: 4,
-        answer1: 'Boca Juniors',
-        answer2: 'River Plate',
-        answer3: 'Independiente',
-        answer4: 'Racing Club',
+        answersArr: ['Boca Juniors', 'River Plate', 'Independiente', 'Racing Club'],
         correctAnswer: 2
     },
     {
         id: 6,
         question: 'Who is the all-time leading goal scorer for the Brazilian national team?',
         numOfAnswers: 4,
-        answer1: 'Pele',
-        answer2: 'Ronaldo',
-        answer3: 'Neymar',
-        answer4: 'Zico',
+        answersArr: ['Pele', 'Ronaldo', 'Neymar', 'Zico'],
         correctAnswer: 1
     },
     {
         id: 7,
         question: 'Which team has won the most UEFA Europa League titles?',
         numOfAnswers: 4,
-        answer1: 'Chelsea',
-        answer2: 'Inter Milan',
-        answer3: 'Sevilla',
-        answer4: 'Atletico Madrid',
+        answersArr: ['Chelsea', 'Inter Milan', 'Sevilla', 'Atletico Madrid'],
         correctAnswer: 3
     },
     {
         id: 8,
         question: 'Which team has won the most UEFA Super Cup?',
         numOfAnswers: 4,
-        answer1: 'Ajax',
-        answer2: 'Real Madrid',
-        answer3: 'Barcelona',
-        answer4: 'AC Milan',
+        answersArr: ['Ajax', 'Real Madrid', 'Barcelona', 'AC Milan'],
         correctAnswer: 1
     },
     {
         id: 9,
         question: 'Which team has won the most Inter-Continental Cup?',
         numOfAnswers: 4,
-        answer1: 'River Plate',
-        answer2: 'Real Madrid',
-        answer3: 'Boca Juniors',
-        answer4: 'AC Milan',
+        answersArr: ['River Plate', 'Real Madrid', 'Boca Juniors', 'AC Milan'],
         correctAnswer: 4
     },
     {
         id: 10,
         question: 'Which team has won the most FIFA Club World Cup?',
         numOfAnswers: 4,
-        answer1: 'Real Madrid',
-        answer2: 'Barcelona',
-        answer3: 'Manchester United',
-        answer4: 'Bayern Munich',
+        answersArr: ['Real Madrid', 'Barcelona', 'Manchester United', 'Bayern Munich'],
         correctAnswer: 2
-    },
+    }
 ];
+
+
 
 const questionNr = document.querySelector('[data-question-number]');
 
@@ -107,9 +79,14 @@ const timer = document.querySelector('[data-timer]');
 
 const question = document.querySelector('[data-question]');
 
+const form = document.querySelector('[data-form]');
+
 const answers = document.querySelectorAll('[data-answer]');
 
+//const answersNr = document.querySelectorAll('[data-answer-number]');
+
 const btnSendAnswer = document.querySelector('[data-send-answer]');
+
 
 let index = 0;
 
@@ -118,9 +95,23 @@ let timerSeconds = 600;
 let minutes;
 let seconds;
 
-function showQuestion() {
-    questionNr.innerHTML = `Question ${index + 1} (${questionsArr.length - index + 1} remaining)`;
+let score = 0;
+let pArray = [];
+let spanArray = [];
 
+
+function showQuestion() {
+    questionNr.textContent = `Question ${index + 1} (${questionsArr.length - index - 1} remaining)`;
+    question.textContent = questionsArr[index].question;
+    for (let i = 0; i < questionsArr[index].numOfAnswers; i++) {
+        pArray[i] = document.createElement("p");
+        spanArray[i] = document.createElement("span");
+        pArray[i].classList.add('answer');
+        spanArray[i].textContent = `${String.fromCharCode(i + 65)}`;
+        pArray[i].textContent = questionsArr[index].answersArr[i];
+        form.appendChild(pArray[i]);
+        pArray[i].appendChild(spanArray[i]);
+    }
 }
 
 
@@ -131,7 +122,7 @@ function timerStart() {
         seconds = timerSeconds % 60;
         // if(timerSeconds <= 600)
         //     timer.classList.add
-        if (timerSeconds <= 0)
+        if (timerSeconds < 0)
             clearInterval(interval);
         else {
             timer.textContent = `${Math.floor(minutes)}:${Math.floor(seconds)}`;
@@ -145,5 +136,27 @@ function timerStart() {
 }
 
 window.addEventListener('DOMContentLoaded', timerStart);
+window.addEventListener('DOMContentLoaded', showQuestion);
 
-//btnSendAnswer.addEventListener('click',);
+btnSendAnswer.addEventListener('click', showQuestion);
+
+// answers.forEach((answer) => {
+//     answer.addEventListener('click', () => {
+//         // a loop to 'deselect' all answers that are not chosen
+//         pArray.forEach((item) => {
+//             if (item !== answer)
+//                 item.classList.remove('chosen-answer');
+//         });
+//         answer.classList.toggle('chosen-answer');
+//     })
+// });
+
+btnSendAnswer.addEventListener('click', () => {
+    if (index === questionsArr.length) {
+        //showEndScreen();
+        return
+    }
+
+    //showQuestion();
+
+});
