@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Pacifico&family=Raleway:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Pacifico&family=Raleway:wght@200&family=Montserrat:wght@600&display=swap');
 
 * {
     margin: 0;
@@ -11,7 +11,7 @@
     background-image: linear-gradient(146deg, #9dcdee 0%, #4062BB 50%);
     font-family: 'Pacifico', cursive;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     min-height: 15vh;
 }
@@ -30,13 +30,14 @@
     font-family: 'Raleway', sans-serif;
     min-height: 85vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
 .recipe-and-button {
     width: 850px;
     position: relative;
+    margin-bottom: 80px;
 }
 
 .recipe {
@@ -49,9 +50,12 @@
 }
 
 .recipe-img {
-    min-height: 275px;
-    min-width: 275px;
-    background-color: rgb(151, 90, 15);
+    max-height: 275px;
+    max-width: 275px;
+}
+
+.recipe-img img {
+    width: 100%;
 }
 
 .recipe-content h2 {
@@ -122,4 +126,21 @@
 
 .recipe-btn span:first-of-type {
     padding-left: 10px;
+}
+
+#credits {
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#credits:hover span {
+    color: rgb(177, 85, 32)
 }
