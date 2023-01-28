@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Pacifico&family=Raleway:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header-container {
+    background-color: #9dcdee;
+    background-image: linear-gradient(146deg, #9dcdee 0%, #4062BB 50%);
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 15vh;
+}
+
+#header-container h1 {
+    font-size: 50px;
+}
+
+#header-container,
+#main-container {
+    padding: 0 100px
+}
+
+#main-container {
+    padding: 50px 0;
+    font-family: 'Raleway', sans-serif;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.recipe-and-button {
+    width: 850px;
+    position: relative;
+}
+
+.recipe {
+    width: 100%;
+    display: flex;
+    box-shadow: 5px 5px 15px rgb(190, 190, 190), 0px 0px 5px rgb(230, 230, 230);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.recipe-img {
+    min-height: 275px;
+    min-width: 275px;
+    background-color: rgb(151, 90, 15);
+}
+
+.recipe-content h2 {
+    letter-spacing: 3px;
+}
+
+.recipe-content p {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    margin: 30px 0;
+}
+
+.recipe-content {
+    padding: 35px 50px;
+}
+
+.recipe-times {
+    display: flex;
+    gap: 50px;
+    font-weight: bold;
+}
+
+.recipe-time-title {
+    font-size: 13px;
+    color: rgb(140, 140, 140);
+    display: block;
+    padding-bottom: 5px;
+}
+
+.def-font {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.text-color {
+    color: #1342b8;
+}
+
+.recipe-btn {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    background: #4062BB;
+    color: white;
+    box-shadow: 5px 5px 15px rgb(190, 190, 190), 0px 0px 5px rgb(230, 230, 230);
+
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.recipe-btn:hover {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+}
+
+.recipe-btn span:first-of-type {
+    padding-left: 10px;
+}
