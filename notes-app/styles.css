@@ -31,40 +31,6 @@ h1 {
     margin-bottom: 30px;
 }
 
-
-.gg-close-r {
-    box-sizing: border-box;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    display: block;
-    transform: scale(var(--ggs, 1));
-    width: 42px;
-    height: 42px;
-    border: 2px solid;
-    border-radius: 50%;
-    cursor: pointer;
-    color: red;
-}
-
-.gg-close-r::after,
-.gg-close-r::before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 22px;
-    height: 2px;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    top: 17px;
-    left: 8px
-}
-
-.gg-close-r::after {
-    transform: rotate(-45deg)
-}
-
 .del-btn {
     position: absolute;
     right: 10px;
@@ -85,22 +51,25 @@ h1 {
     cursor: pointer;
 }
 
-.modal {
-    display: none;
+#modal {
     position: fixed;
-    top: 320px;
-    width: 550px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 575px;
+    max-width: 80%;
     min-height: 300px;
     background-color: aliceblue;
     border-radius: 15px;
     box-shadow: 5px 5px 15px rgb(75, 72, 72), 0px 0px 5px rgb(75, 72, 72);
+    z-index: 10;
 }
 
-.show {
-    display: block;
+#modal.active {
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.modal textarea {
+#modal textarea {
     font-size: 30px;
     border: none;
     outline: none;
@@ -109,4 +78,22 @@ h1 {
     background-color: transparent;
     margin-top: 50px;
     margin-left: 30px;
+}
+
+/* making the background of the modal darker */
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+    /* dont capture other events */
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
 }

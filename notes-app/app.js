@@ -8,15 +8,21 @@ const closeModalBtn = document.getElementById('close-modal-btn')
 
 const textarea = document.getElementById('textarea');
 
+const overlay = document.getElementById('overlay');
+
 
 function openModal() {
-    if (!modal.classList.contains('show'))
-        modal.classList.add('show');
+    if (!modal.classList.contains('active'))
+        modal.classList.add('active');
+        overlay.classList.add('active');
 }
 
 function closeModal() {
-    if (modal.classList.contains('show'))
-        modal.classList.remove('show');
+    if (modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+
     //if(inputText.length === 0) return
     //return ` <div class="note">
     //<button id="del-btn">&times;</button>
