@@ -12,9 +12,10 @@ const overlay = document.getElementById('overlay');
 
 
 function openModal() {
-    if (!modal.classList.contains('active'))
+    if (!modal.classList.contains('active')) {
         modal.classList.add('active');
         overlay.classList.add('active');
+    }
 }
 
 function closeModal() {
@@ -40,3 +41,10 @@ addBtn.addEventListener('click', () => {
 closeModalBtn.addEventListener('click', () => {
     closeModal();
 });
+
+overlay.addEventListener('click', () => {
+    if (modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+})
