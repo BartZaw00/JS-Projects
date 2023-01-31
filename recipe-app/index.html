@@ -7,47 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
     <title>Recipe App</title>
 </head>
 
 <body>
     <header id="header-container">
-        <h1>Recipes App</h1>
+        <h1>Recipe App</h1>
     </header>
     <main id="main-container">
-        <!-- <div class="recipe-and-button">
-            <div class="recipe">
-                <div class="recipe-img"></div>
-                <div class="recipe-content">
-                    <h2 class="text-color">Caramel Cake Pancakes</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci quisquam minus veritatis
-                        exercitationem quas similique molestias id laborum eveniet error.</p>
-                    <div class="recipe-times">
-                        <div class="recipe-time">
-                            <span class="recipe-time-title">Hands-on Time</span>
-                            <span class="def-font text-color">30 min</span>
-                        </div>
-                        <div class="recipe-time">
-                            <span class="recipe-time-title">Total Time</span>
-                            <span class="def-font text-color">40 min</span>
-                        </div>
-                        <div class="recipe-time">
-                            <span class="recipe-time-title">Yield</span>
-                            <span class="def-font text-color">40 min</span>
-                        </div>
+        
+        <div id="modal" class="modal">
+            <span id="modal-close" class="material-symbols-outlined">close</span>
+            <div class="modal-img"></div>
+            <div class="modal-content">
+                <h2 id="modal-title" class="text-color"></h2>
+                <div class="details">
+                    <div class="detail">
+                        <span class="detail-title inline"></span>
+                        <span id="modal-category" class="text-color"></span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-title inline"></span>
+                        <span id="modal-area" class="text-color"></span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-title inline"></span>
+                        <span id="modal-tags" class="text-color"></span>
                     </div>
                 </div>
+                <p id="modal-description"></p>
             </div>
-            <button class="recipe-btn"><span>FULL RECIPE</span><span class="material-symbols-outlined">
-                    arrow_forward
-                </span></button>
-        </div> -->
+        </div>
     </main>
     <footer><a id="credits" href="https://github.com/BartZaw00" target="_blank">Created By <span>Bartosz
                 Zawadka</span></a></footer>
-                
-    <script src="app.js"></script>
+
+    
 </body>
 
 </html>

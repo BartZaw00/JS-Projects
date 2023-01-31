@@ -58,7 +58,8 @@
     width: 100%;
 }
 
-.recipe-content h2 {
+.recipe-content h2,
+.modal-content h2 {
     letter-spacing: 3px;
 }
 
@@ -72,21 +73,30 @@
     padding: 35px 50px;
 }
 
-.recipe-times {
+.details {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     gap: 50px;
     font-weight: bold;
 }
 
-.recipe-time-title {
-    font-size: 13px;
+.recipe-content .details {
+    gap: 25px;
+}
+
+.detail-title {
+    font-size: 18px;
     color: rgb(140, 140, 140);
     display: block;
     padding-bottom: 5px;
 }
 
-.def-font {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.recipe-content .detail-title {
+    font-size: 16px;
+}
+
+.inline {
+    display: inline;
 }
 
 .text-color {
@@ -126,6 +136,42 @@
 
 .recipe-btn span:first-of-type {
     padding-left: 10px;
+}
+
+.modal {
+    display: none;
+    background: white;
+    position: fixed;
+    width: 1000px;
+    height: 600px;
+    box-shadow: 5px 5px 15px rgb(190, 190, 190), 0px 0px 5px rgb(230, 230, 230);
+    z-index: 10;
+    transition: .3s ease-out;
+    justify-content: space-evenly;
+    gap: 30px;
+    padding: 30px;
+}
+
+.show {
+    display: flex;
+}
+
+.modal .material-symbols-outlined {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.modal-img {
+    max-height: 275px;
+    min-width: 275px;
+    background-color: aqua;
+}
+
+.modal-content .details {
+    margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 #credits {
