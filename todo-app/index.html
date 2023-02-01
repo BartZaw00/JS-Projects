@@ -15,33 +15,31 @@
         <h1>To Do App</h1>
         <div id="to-do-container">
             <div class="to-do-header">
-                <span>TO DO (5)</span>
+                <span>TO DO (<span id="nr-of-todo">0</span>)</span>
                 <div data-btn-more class="icon-area">
                     <i class="gg-more-alt"></i>
                     <div data-dropdown-menu class="dropdown-menu">
                         <ul>
-                            <li>Edit</li>
-                            <li class="red">Delete</li>
-                            <li class="red">Delete All</li>
+                            <li data-dropdown-edit>Edit</li>
+                            <li data-dropdown-delete class="red">Delete</li>
+                            <li data-dropdown-delete-all class="red">Delete All</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="to-do">
                 <ul data-to-do>
-                    <li><i class="gg-radio-check"></i>Eggs</li>
-                    <li><i class="gg-radio-check"></i>Eggs</li>
-                    <li><i class="gg-radio-check"></i>Eggs</li>
-                    <li><i class="gg-radio-check"></i>Eggs</li>
                 </ul>
             </div>
             <div class="completed">
-                <span>COMPLETED (4)</span>
+                <span>COMPLETED (<span id="nr-of-completed">0</span>)</span>
                 <ul data-completed>
-                    <li><i class="gg-check-o"></i>Eggs</li>
                 </ul>
             </div>
-            <button id="btn-add">+</button>
+            <div class="add-new">
+                <input id="add-new-input" type="text" placeholder="Type here...">
+                <button id="btn-add">+</button>
+            </div>
         </div>
     </div>
     <footer><a id="credits" href="https://github.com/BartZaw00" target="_blank">Created By <span>Bartosz
