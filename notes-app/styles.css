@@ -25,23 +25,55 @@ h1 {
 .note {
     position: relative;
     min-width: 500px;
+    max-width: 500px;
     min-height: 500px;
+    max-height: 500px;
     background-color: white;
     box-shadow: 5px 5px 15px rgb(75, 72, 72), 0px 0px 5px rgb(75, 72, 72);
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-wrap: break-word;
+}
+
+.note p{
+    font-size: 30px;
+    margin: 40px 20px 20px 20px;
+    max-width: 460px;
+    flex: 1;
+    align-self: flex-start;
+    overflow-y: auto;
 }
 
 .del-btn {
     position: absolute;
+    top: -5px;
     right: 10px;
-    top: -10px;
     cursor: pointer;
     font-size: 50px;
     background-color: transparent;
     border: none;
 }
 
-#add-btn {
+.edit-btn {
+    color: white;
+    font-size: 30px;
+    padding: 10px 50px;
+    background-color: rgb(241, 183, 23);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.edit-btn:hover {
+    color: rgb(241, 183, 23);
+    background-color: white;
+    border: 3px solid rgb(241, 183, 23);
+}
+
+.add-btn {
     color: white;
     font-size: 30px;
     padding: 10px 50px;
@@ -49,6 +81,12 @@ h1 {
     border: none;
     border-radius: 30px;
     cursor: pointer;
+}
+
+.add-btn:hover {
+    color: rgb(151, 238, 64);
+    background-color: white;
+    border: 3px solid rgb(151, 238, 64);
 }
 
 #modal {
