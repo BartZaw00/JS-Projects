@@ -20,6 +20,7 @@ let noteToEdit;
 
 function displayNotes() {
     if (closeModal() === undefined) return
+    if (textarea.value.length === 0 || textarea.value === "") return
     notes.innerHTML += closeModal();
     textarea.value = '';
     editNoteBtns = notes.querySelectorAll('[data-edit-note-btn]');
@@ -51,11 +52,11 @@ function closeModal() {
         modal.classList.remove('active');
         overlay.classList.remove('active');
     }
-    if (textarea.value.length === 0 || textarea.value === "") return
 
     if (noteToEdit) {
         noteToEdit.children[1].textContent = textarea.value;
         noteToEdit = null;
+        textarea.value = '';
         return;
     }
 
