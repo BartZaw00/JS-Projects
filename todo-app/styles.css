@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito+Sans:wght@600&family=Montserrat:wght@600&family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito+Sans:wght@600&family=Montserrat:wght@600&family=Itim&family=Outfit&display=swap');
 @import url('https://css.gg/radio-check.css');
 @import url('https://css.gg/check-o.css');
 @import url('https://css.gg/more-alt.css');
@@ -43,7 +43,50 @@ h1 {
     align-items: center;
 }
 
-.done {
+.to-do-header .icon-area {
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+}
+
+.icon-border {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 17px;
+    position: absolute;
+    top: 30px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+}
+
+.dropdown-menu ul li {
+    padding: 10px 15px;
+    margin: 10px;
+}
+
+.dropdown-menu ul li:hover {
+    background-color: #eee;
+}
+
+.red {
+    color: red;
+}
+
+.active {
+    display: block;
+    transition: height 0.5s ease;
+}
+
+.completed {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -52,7 +95,7 @@ h1 {
 }
 
 .to-do ul,
-.done ul {
+.completed ul {
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -60,10 +103,12 @@ h1 {
 }
 
 .to-do ul li,
-.done ul li {
+.completed ul li {
     display: flex;
     align-items: center;
     font-size: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
     gap: 10px;
 }
 
@@ -105,7 +150,7 @@ h1 {
     transform: rotate(45deg);
 }
 
-.btn-add {
+#btn-add {
     align-self: flex-end;
     background-color: #4E4E80;
     color: white;
@@ -117,7 +162,7 @@ h1 {
     cursor: pointer;
 }
 
-.btn-add:hover {
+#btn-add:hover {
     background-color: white;
     color: #4E4E80;
 }

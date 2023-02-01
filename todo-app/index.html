@@ -16,23 +16,32 @@
         <div id="to-do-container">
             <div class="to-do-header">
                 <span>TO DO (5)</span>
-                <i class="gg-more-alt"></i>
+                <div data-btn-more class="icon-area">
+                    <i class="gg-more-alt"></i>
+                    <div data-dropdown-menu class="dropdown-menu">
+                        <ul>
+                            <li>Edit</li>
+                            <li class="red">Delete</li>
+                            <li class="red">Delete All</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div data-to-do class="to-do">
-                <ul>
+            <div class="to-do">
+                <ul data-to-do>
                     <li><i class="gg-radio-check"></i>Eggs</li>
                     <li><i class="gg-radio-check"></i>Eggs</li>
                     <li><i class="gg-radio-check"></i>Eggs</li>
                     <li><i class="gg-radio-check"></i>Eggs</li>
                 </ul>
             </div>
-            <div data-completed class="done">
+            <div class="completed">
                 <span>COMPLETED (4)</span>
-                <ul>
+                <ul data-completed>
                     <li><i class="gg-check-o"></i>Eggs</li>
                 </ul>
             </div>
-            <button class="btn-add">+</button>
+            <button id="btn-add">+</button>
         </div>
     </div>
     <footer><a id="credits" href="https://github.com/BartZaw00" target="_blank">Created By <span>Bartosz
