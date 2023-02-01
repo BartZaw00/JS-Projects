@@ -15,15 +15,28 @@ let notes = document.getElementById('notes');
 let editNoteBtns;
 let delNoteBtns;
 
+let noteToEdit;
+
 
 function displayNotes() {
+    if (closeModal() === undefined) return
     notes.innerHTML += closeModal();
-    if(notes.textContent === undefined) notes.innerHTML = '';
     textarea.value = '';
     editNoteBtns = notes.querySelectorAll('[data-edit-note-btn]');
     delNoteBtns = notes.querySelectorAll('[data-del-note-btn]');
-    console.log(editNoteBtns);
-    console.log(delNoteBtns);
+
+    for (let i = 0; i < editNoteBtns.length; i++) {
+
+        editNoteBtns[i].addEventListener('click', (btn) => {
+            console.log(btn)
+            noteToEdit = btn.target.parentElement;
+            editModal(noteToEdit);
+        })
+
+        delNoteBtns[i].addEventListener('click', (btn) => {
+            btn.target.parentElement.remove();
+        })
+    }
 }
 
 function openModal() {
@@ -38,7 +51,13 @@ function closeModal() {
         modal.classList.remove('active');
         overlay.classList.remove('active');
     }
-    if (textarea.value.length === 0) return
+    if (textarea.value.length === 0 || textarea.value === "") return
+
+    if (noteToEdit) {
+        noteToEdit.children[1].textContent = textarea.value;
+        noteToEdit = null;
+        return;
+    }
 
     return `<div class="note">
     <button data-del-note-btn class="del-btn">&times;</button>
@@ -46,6 +65,15 @@ function closeModal() {
     <button data-edit-note-btn class="edit-btn">EDIT</button>
 </div> `;
 }
+
+function editModal(note) {
+    if (!modal.classList.contains('active')) {
+        modal.classList.add('active');
+        overlay.classList.add('active');
+    }
+    textarea.value = note.children[1].textContent;
+}
+
 
 addBtn.addEventListener('click', () => {
     openModal();
@@ -58,3 +86,9 @@ closeModalBtn.addEventListener('click', () => {
 overlay.addEventListener('click', () => {
     displayNotes();
 })
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        displayNotes();
+    }
+});
