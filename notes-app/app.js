@@ -12,7 +12,19 @@ const overlay = document.getElementById('overlay');
 
 let notes = document.getElementById('notes');
 
+let editNoteBtns;
+let delNoteBtns;
 
+
+function displayNotes() {
+    notes.innerHTML += closeModal();
+    if(notes.textContent === undefined) notes.innerHTML = '';
+    textarea.value = '';
+    editNoteBtns = notes.querySelectorAll('[data-edit-note-btn]');
+    delNoteBtns = notes.querySelectorAll('[data-del-note-btn]');
+    console.log(editNoteBtns);
+    console.log(delNoteBtns);
+}
 
 function openModal() {
     if (!modal.classList.contains('active')) {
@@ -27,13 +39,12 @@ function closeModal() {
         overlay.classList.remove('active');
     }
     if (textarea.value.length === 0) return
-    
-    notes.innerHTML += `<div class="note">
+
+    return `<div class="note">
     <button data-del-note-btn class="del-btn">&times;</button>
     <p>${textarea.value}</p>
     <button data-edit-note-btn class="edit-btn">EDIT</button>
 </div> `;
-    textarea.value = '';
 }
 
 addBtn.addEventListener('click', () => {
@@ -41,9 +52,9 @@ addBtn.addEventListener('click', () => {
 });
 
 closeModalBtn.addEventListener('click', () => {
-    closeModal();
+    displayNotes();
 });
 
 overlay.addEventListener('click', () => {
-    closeModal();
+    displayNotes();
 })
