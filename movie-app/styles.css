@@ -82,3 +82,20 @@
     align-self: center;
     color: greenyellow;
 }
+
+#credits {
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#credits:hover span {
+    color: rgb(177, 85, 32)
+}

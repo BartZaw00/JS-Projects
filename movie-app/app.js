@@ -18,12 +18,15 @@ async function show_Movies() {
 
     console.log(fullAPIresults)
 
+    // console.log(filmsContainer.innerHTML)
+
     fullAPIresults.forEach((singleAPIresults) => {
         singleAPIresults.results.forEach((result) => {
-            filmsContainer.innerHTML += addMovie(result);
+            // filmsContainer.innerHTML += addMovie(result);
         })
     });
 }
+
 
 function addMovie(movie) {
     return `<div class="film">
