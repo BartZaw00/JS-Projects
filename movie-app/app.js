@@ -30,6 +30,12 @@ function displayMovies(items) {
     });
 }
 
+function displayFilteredMovies(items) {
+    items.forEach((result) => {
+        filmsContainer.innerHTML += addMovie(result);
+    })
+}
+
 function addMovie(movie) {
     let movieReviews = "good";
     let movieFontSize = "big"
@@ -50,10 +56,21 @@ function addMovie(movie) {
 }
 
 searchField.addEventListener('input', () => {
-    let searchQuery = this.value;
-    let searchResults = fullAPIresults.filter((element) => {
-        element.results.title.includes(searchQuery);
-    });
+    let searchQuery = searchField.value.toUpperCase();
+    let searchResults = fullAPIresults.reduce((acc, element) => {
+        return acc.concat(element.results.filter(result => result.title.toUpperCase().includes(searchQuery)));
+    }, []);
 
-    displayMovies(searchResults);
-});
+    // fullAPIresults.forEach(element => {
+    //     element.results.forEach(result => {
+    //         console.log('TYTUL: ' + result.title.toUpperCase())
+    //         console.log('WYSZUKIWANE: ' + searchQuery.toUpperCase());
+    //         console.log('ZAWIERA: ' + result.title.toUpperCase().includes(searchQuery))
+    //     })
+    // });
+
+    console.log(fullAPIresults)
+    console.log(searchResults)
+    filmsContainer.innerHTML = '';
+    displayFilteredMovies(searchResults);
+})
