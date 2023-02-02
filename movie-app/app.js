@@ -61,14 +61,6 @@ searchField.addEventListener('input', () => {
         return acc.concat(element.results.filter(result => result.title.toUpperCase().includes(searchQuery)));
     }, []);
 
-    // fullAPIresults.forEach(element => {
-    //     element.results.forEach(result => {
-    //         console.log('TYTUL: ' + result.title.toUpperCase())
-    //         console.log('WYSZUKIWANE: ' + searchQuery.toUpperCase());
-    //         console.log('ZAWIERA: ' + result.title.toUpperCase().includes(searchQuery))
-    //     })
-    // });
-
     console.log(fullAPIresults)
     console.log(searchResults)
     filmsContainer.innerHTML = '';
