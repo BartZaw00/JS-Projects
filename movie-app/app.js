@@ -41,13 +41,19 @@ async function displayMovies(items) {
 
 function addMovie(movie) {
     let movieReviews = "good";
+    let movieFontSize = "big"
     if (movie.vote_average < 7.5)
         movieReviews = "medium";
     if (movie.vote_average < 5)
         movieReviews = "bad";
+    if (movie.title.length > 21)
+        movieFontSize = "medium";
+    if (movie.title.length > 50)
+        movieFontSize = "small";
+
 
     return `<div class="film">
     <img src="${IMG_PATH + movie.poster_path}" alt="${movie.title}">
-    <div class="film-description"><span>${movie.title}</span><span class=" vote vote-average-${movieReviews}">${movie.vote_average}</span></div> 
+    <div class="film-description"><span class="font-size-${movieFontSize}">${movie.title}</span><span class=" vote vote-average-${movieReviews}">${movie.vote_average}</span></div> 
     </div>`;
 }
