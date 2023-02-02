@@ -60,7 +60,6 @@
 }
 
 .film img {
-    min-height: 80%;
     max-height: 80%;
 }
 
@@ -70,17 +69,30 @@
     display: flex;
     justify-content: space-between;
     flex: 1;
+    gap: 5px;
 }
 
 .film-description span:first-child {
     color: white;
 }
 
-.film-description span:last-child {
+.vote {
     background: linear-gradient(146deg, #2d2f46 0%, #1f273d 50%);
     padding: 5px 10px;
     align-self: center;
+    color: white;
+}
+
+.vote-average-good {
     color: greenyellow;
+}
+
+.vote-average-medium {
+    color: orange;
+}
+
+.vote-average-bad {
+    color: red;
 }
 
 #credits {
