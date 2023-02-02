@@ -3,8 +3,7 @@ const API_KEY = '04c35731a5ee918f014970082a0088b1';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
 const filmsContainer = document.querySelector('[data-films]');
-
-console.log(filmsContainer)
+const searchField = document.querySelector('[data-search]');
 
 let fullAPIresults = [];
 
@@ -20,18 +19,10 @@ async function getMovies() {
 
     console.log(fullAPIresults)
 
-    await displayMovies(fullAPIresults);
-    // // console.log(filmsContainer.innerHTML)
-
-    // fullAPIresults.forEach((singleAPIresults) => {
-    //     singleAPIresults.results.forEach((result) => {
-    //         // filmsContainer.innerHTML += addMovie(result);
-    //     })
-    // });
+    displayMovies(fullAPIresults);
 }
 
-
-async function displayMovies(items) {
+function displayMovies(items) {
     items.forEach((item) => {
         item.results.forEach((result) => {
             filmsContainer.innerHTML += addMovie(result);
@@ -57,3 +48,12 @@ function addMovie(movie) {
     <div class="film-description"><span class="font-size-${movieFontSize}">${movie.title}</span><span class=" vote vote-average-${movieReviews}">${movie.vote_average}</span></div> 
     </div>`;
 }
+
+searchField.addEventListener('input', () => {
+    let searchQuery = this.value;
+    let searchResults = fullAPIresults.filter((element) => {
+        element.results.title.includes(searchQuery);
+    });
+
+    displayMovies(searchResults);
+});
