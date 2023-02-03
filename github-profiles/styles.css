@@ -33,12 +33,11 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    z-index: -100;
 }
 
 .search {
     background: transparent;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 1px solid #4e4e4e;
     border-radius: 20px;
     padding: 10px 50px 10px 15px;
@@ -51,6 +50,7 @@
     margin-top: 80px;
     width: 500px;
     position: relative;
+    z-index: 10;
 }
 
 .profile {
@@ -58,8 +58,10 @@
     box-shadow: 0px 10px 20px 0px rgba(219, 215, 215, 0.75);
     width: 500px;
     display: flex;
-    gap: 80px;
+    gap: 20px;
     border-radius: 5px;
+    font-family: 'Montserrat';
+    overflow: hidden;
 }
 
 .profile-2 {
@@ -70,9 +72,9 @@
     right: 0;
     margin: auto;
     width: 90%;
-    height: 100%;
+    height: 20px;
     border-radius: 5px;
-    z-index: -50;
+    z-index: -10;
     box-shadow: 0px 10px 20px 0px rgb(145, 145, 145);
 }
 
@@ -84,9 +86,9 @@
     right: 0;
     margin: auto;
     width: 85%;
-    height: 100%;
+    height: 20px;
     border-radius: 5px;
-    z-index: -75;
+    z-index: -20;
     box-shadow: 0px 10px 20px 0px rgb(168, 168, 168);
 }
 
@@ -98,14 +100,40 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-family: 'PT-Sans';
     flex: 2;
     padding: 30px;
 }
 
-.profile-details .location {
+.profile-details h2 {
+    font-size: 22px;
+    text-align: center;
+    font-family: 'Pacifico';
+}
+
+.profile-details .nick_and_location {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.visit-btn {
+    text-decoration: none;
+    margin-top: 20px;
+    align-self: center;
+    background-color: #272730;
+    color: white;
+    font-size: 30px;
+    padding: 0 25px;
+    border: 3px solid #272730;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.19), 0px 3px 3px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+    z-index: 50;
+}
+
+.visit-btn:hover {
+    background-color: white;
+    color: #272730;
 }
 
 #credits {
