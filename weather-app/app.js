@@ -1,0 +1,1 @@
+const API_URL = 'http://api.weatherstack.com/current?access_key=7317c282b7a80b1734099cdc72f582ee&query=Lodz';
