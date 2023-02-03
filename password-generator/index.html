@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Password Generator</h2>
+        <form>
+            <span class="setting password">GENERATED PASSWORD</span>
+            <div class="length">
+                <span>LENGTH: 17</span>
+                <div class="length-input">
+                    <span>0</span><input type="range" min="0" max="100" step="1"
+                        value="50"><span>100</span>
+                </div>
+            </div>
+            <div class="settings">
+                <span>SETTINGS</span>
+                <div class="setting"><span>Include Uppercase</span>
+                    <button data-button class="play">
+                        <div data-color class="color"></div>
+                    </button>
+                </div>
+                <div class="setting"><span>Include Uppercase</span>
+                    <button data-button class="play">
+                        <div data-color class="color"></div>
+                    </button>
+                </div>
+                <div class="setting"><span>Include Uppercase</span>
+                    <button data-button class="play">
+                        <div data-color class="color"></div>
+                    </button>
+                </div>
+                <div class="setting"><span>Include Uppercase</span>
+                    <button data-button class="play switch play-active">
+                        <div data-color class="color"></div>
+                    </button>
+                </div>
+            </div>
+            <button class="submit-btn">GENERATE PASSWORD</button>
+        </form>
+    </div>
+</body>
+
+</html>
