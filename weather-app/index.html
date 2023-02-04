@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../fonts/weather-icons.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script defer src="app.js"></script>
     <title>Weather App</title>
@@ -13,26 +14,9 @@
 
 <body>
     <input data-search class="search" type="text" placeholder="Type City...">
-    <div class="city">
-        <div class="city-header">
-            <h2>Lodz</h2>
-            <span>Thursday 10:40 PM</span>
-        </div>
-        <div class="city-weather">
-            <img src="https:\/\/cdn.worldweatheronline.com\/images\/wsymbols01_png_64\/wsymbol_0004_black_low_cloud.png"
-                alt="weather">
-            <div class="weather">
-                <span>9oC</span>
-                <div class="weather-details">
-                    <div class="detail"><i class="wi wi-day-sunny"></i></div>
-                    <div class="detail"></div>
-                    <div class="detail"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div data-container class="city"></div>
     <footer><a id="credits" href="https://github.com/BartZaw00" target="_blank">Created By <span>Bartosz
-        Zawadka</span></a></footer>
+                Zawadka</span></a></footer>
 </body>
 
 </html>

@@ -15,26 +15,26 @@ body {
 }
 
 .search {
-    margin-top: 200px;
+    margin-top: 150px;
     background: transparent;
     color: black;
     border: 1px solid #4e4e4e;
     border-radius: 20px;
     padding: 10px 50px 10px 15px;
-    font-family: 'Raleway';
     font-weight: bold;
     outline: none;
 }
 
 .city {
     margin-top: 50px;
+    margin-bottom: 100px;
     width: 500px;
     background-color: white;
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    font-family: 'Montserrat';
 }
 
 .city-header {
@@ -45,7 +45,6 @@ body {
     color: white;
     background-color: rgba(31, 27, 43, 0.7);
     width: 100%;
-    font-family: 'Montserrat';
     padding-bottom: 10px;
 }
 
@@ -54,8 +53,49 @@ body {
 }
 
 .city-weather {
-
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
 }
+
+.city-weather img {
+    flex: 1;
+    box-shadow: 0px 5px 10px 0px rgba(131, 131, 131, 0.6);
+}
+
+.weather {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.weather span:first-child {
+    font-size: 65px;
+}
+
+.weather .weather-details {
+    display: flex;
+    gap: 20px;
+}
+
+.weather-details .detail {
+    padding: 5px 15px;
+    background-color: rgb(207, 207, 207);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+.weather-details .detail span {
+    font-size: 20px;
+}
+
+
 
 #credits {
     font-family: 'Montserrat', sans-serif;
