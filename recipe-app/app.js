@@ -26,7 +26,7 @@ function displayData(products) {
         mainContainer.innerHTML += displaySingleRecipe(element);
     });
 
-    
+
     const fullRecipeBtns = document.getElementsByClassName('recipe-btn');
 
     showModal(fullRecipeBtns, products);
@@ -71,10 +71,9 @@ function showModal(fullRecipeBtns, products) {
             document.getElementById("modal-tags").textContent = products.meals[i].strTags;
             document.getElementById("modal-description").textContent = products.meals[i].strInstructions;
             if (!modal.classList.contains('show')) {
+                console.log(fullRecipeBtns[i])
                 console.log(modal)
-                setTimeout(() => {
-                    modal.classList.add('show');
-                }, 0);
+                modal.classList.add('show');
             }
         });
     }
