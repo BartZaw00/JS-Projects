@@ -12,10 +12,17 @@ function getCity(searchQuery) {
     fetch(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${searchQuery}`)
         .then(response => response.json())
         .then(data => container.innerHTML = displayCity(data))
-        .catch(error => console.error(error));
-    
+        .catch(error => {
+            console.error(error)
+            container.innerHTML = displayNothing();
+        });
+
 }
 
+
+function displayNothing() {
+    return ``;
+}
 
 function displayCity(city) {
     return `<div class="city-header">
