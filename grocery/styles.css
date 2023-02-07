@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
 }
 
 html {
@@ -30,6 +29,7 @@ body {
     margin: 0 50px;
     border-radius: 10px;
     padding: 40px 20px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .container h1 {
@@ -61,6 +61,7 @@ body {
     width: 100px;
     border: none;
     cursor: pointer;
+    font-family: 'Rubik', sans-serif;
 }
 
 .container-input ul {
@@ -85,10 +86,12 @@ body {
 
 .edit, .save {
     background-color: lawngreen;
+    font-family: 'Rubik', sans-serif;
 }
 
 .delete {
     background-color: crimson;
+    font-family: 'Rubik', sans-serif;
 }
 
 .clear-button {
