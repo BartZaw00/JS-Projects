@@ -147,6 +147,7 @@
     color: rgb(255, 255, 255);
     text-decoration: none;
     cursor: pointer;
+    z-index: 10000;
 }
 
 #credits:hover span {
