@@ -35,6 +35,18 @@ formField.addEventListener('submit', (e) => {
 
 list.addEventListener('click', (event) => {
     console.log(event.target)
+
+    let listChildren = list.children;
+
+    for (let i = 0; i < list.children.length; i++) {
+        if (listChildren[i].children[1].children[0].classList.contains('save')) {
+            listChildren[i].children[1].children[0].classList.remove('save');
+            listChildren[i].children[1].children[0].classList.add('edit');
+            listChildren[i].children[1].children[0].textContent = 'Edit';
+            listChildren[i].children[0].textContent = input.value;
+            listChildren[i].children[0].replaceChild(span, input);
+        }
+    }
     if (event.target.classList.contains('edit')) {
         console.log('EDIT')
         li = event.target.parentNode.parentNode;
