@@ -12,11 +12,26 @@
 
 <body>
     <div class="container">
-        <div class="drawing-area"></div>
+        <canvas id="canvas" width="600" height="700" class="drawing-area"></canvas>
         <div class="menu">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
+            <div class="menu-size">
+                <button data-size-minus>-</button>
+                <span data-size>1</span>
+                <button data-size-plus>+</button>
+            </div>
+            <div class="menu-colors">
+                <div class="color black"></div>
+                <div class="color brown"></div>
+                <div class="color grey"></div>
+                <div class="color purple"></div>
+                <div class="color pink"></div>
+                <div class="color red"></div>
+                <div class="color green"></div>
+                <div class="color blue"></div>
+                <div class="color orange"></div>
+                <div class="color yellow"></div>
+                <div class="color white"></div>
+            </div>
         </div>
     </div>
 </body>

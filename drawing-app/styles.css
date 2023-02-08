@@ -14,33 +14,54 @@ body {
 .container {
     width: 600px;
     height: 800px;
-    border: 1px solid darkblue;
     display: flex;
     flex-direction: column;
 }
 
 .drawing-area {
-    flex:1;
+    border: 1px solid darkblue;
 }
 
 .menu {
     background-color: darkblue;
-    height: 10%;
+    height: 100px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
 }
 
-.menu button {
+.menu-size {
+    display: flex;
+    align-items: center;
+}
+
+.menu-size button {
     width: 50px;
     height: 50px;
     font-size: 40px;
 }
 
-.menu span {
+.menu-size span {
     padding: 7px 15px;
     margin: 0 10px;
     background-color: white;
     font-size: 30px;
     font-weight: bold;
+}
+
+.menu-colors {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+}
+
+.color .black {
+    background-color: black;
 }
