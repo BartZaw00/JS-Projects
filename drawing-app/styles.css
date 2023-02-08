@@ -59,9 +59,48 @@ body {
 .color {
     width: 30px;
     height: 30px;
-    border: 2px solid black;
 }
 
-.color .black {
+.black {
     background-color: black;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.white {
+    background-color: white;
 }
