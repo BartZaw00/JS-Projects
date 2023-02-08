@@ -4,6 +4,8 @@ const plusSize = document.querySelector('[data-size-plus]');
 
 const colors = document.querySelectorAll('[data-colors]');
 
+const clearBtn = document.querySelector('[data-clear-btn]');
+
 const drawingArea = document.getElementById('canvas');
 const ctx = drawingArea.getContext('2d');
 
@@ -26,6 +28,8 @@ drawingArea.addEventListener('mousedown', startDrawing);
 drawingArea.addEventListener('mousemove', draw);
 
 drawingArea.addEventListener('mouseup', stopDrawing);
+
+clearBtn.addEventListener('click', clearScreen);
 
 colors.forEach((color) => {
     color.addEventListener('click', (event) => {
@@ -75,4 +79,8 @@ function draw(e) {
 
 function stopDrawing() {
     isDrawing = false;
+}
+
+function clearScreen() {
+    ctx.clearRect(0, 0, drawingArea.width, drawingArea.height);
 }
